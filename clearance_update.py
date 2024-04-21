@@ -5,12 +5,13 @@ import time
 ctk.set_appearance_mode("dark")
 
 def button_callback():
-    t_end = time.time() + 1.0462
-    while time.time() < t_end:
-        progressbar.start()
-        app.update()
+    # t_end = time.time() + 1.0462
+    # while time.time() < t_end:
+    #     progressbar.start()
+    #     app.update()
 
-    progressbar.stop()
+    # progressbar.stop()
+    print('')
 
 
 app = ctk.CTk()

@@ -7,8 +7,6 @@ def employeepayrasie():
     thirdwindow.title("Employee Pay Raise")
     thirdwindow.geometry("500x500")
 
-
-
     username = tk.Label(thirdwindow, text="Username:")
     username.pack(pady=5)
     Managerusername = tk.Entry(thirdwindow)
@@ -17,6 +15,8 @@ def employeepayrasie():
     password.pack(pady=5)
     Managerpassword = tk.Entry(thirdwindow)
     Managerpassword.pack(pady=5)
+
+
 
 
 
