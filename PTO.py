@@ -4,8 +4,8 @@ from tkinter import messagebox as mb
 
 main = Tk()
 main.title('Welcome to PTO')
-main.geometry('200x200')
-main.configure(bg='green')
+main.geometry('480x480')
+
 
 name = input("Greetings!, Please enter your name: ")
 
