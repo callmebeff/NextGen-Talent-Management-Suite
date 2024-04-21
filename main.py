@@ -16,10 +16,6 @@ def employeepayrasie():
     Managerpassword = tk.Entry(thirdwindow)
     Managerpassword.pack(pady=5)
 
-
-
-
-
     def login():
         # Check if username and password are correct
         usernameadmin = "manager"
