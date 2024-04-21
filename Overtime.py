@@ -4,11 +4,9 @@ from tkinter import messagebox as mb
 main = Tk()
 main.title('Welcome to Overtime')
 main.geometry('480x480')
+main.configure(bg='black')
 
-
-
-name = input("Greetings, please enter your name: ")
-
+name = input("Greetings!, please enter your name: ")
 
 def overtime():
 
@@ -17,7 +15,7 @@ def overtime():
     if response == 1:
         mb.showinfo('1', 'Your request has been approved!, ' + name)
     else:
-        mb.showinfo('1', 'Your request has been denied!, ' + name )
+        mb.showinfo('1', 'Your request has been denied!, ' + name)
 
 
 Button(main, text="Are you getting overtime?", command=overtime, bg ='blue', fg='white').pack()
