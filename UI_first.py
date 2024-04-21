@@ -1,6 +1,8 @@
-from tkinter import *
 
-root = Tk()
+import tkinter as tk
+
+
+root = tk.Tk()
 root.geometry("300x300")
 root.title(" Q&A ")
 
@@ -9,27 +11,29 @@ def Take_input():
 	INPUT = inputtxt.get("1.0", "end-1c")
 	print(INPUT)
 	if(INPUT == "120"):
-		Output.insert(END, 'Correct')
+		Output.insert(tk.END, 'Correct')
 	else:
-		Output.insert(END, "Wrong answer")
+		Output.insert(tk.END, "Wrong answer")
 	
-l = Label(text = "First Name")
-inputtxt = Text(root, height = 10,
+l = tk.Label(text = "First Name")
+inputtxt = tk.Text(root, height = 10,
 				width = 25,
 				bg = "white")
 
-Output = Text(root, height = 5, 
+Output = tk.Text(root, height = 5, 
 			width = 25, 
 			bg = "light cyan")
 
-Display = Button(root, height = 2,
+Display = tk.Button(root, height = 2,
 				width = 20, 
 				text ="Show",
 				command = lambda:Take_input())
+
+
 
 l.pack()
 inputtxt.pack()
 Display.pack()
 Output.pack()
 
-mainloop()
+tk.mainloop()
