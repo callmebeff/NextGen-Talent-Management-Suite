@@ -43,7 +43,7 @@ class App(ctk.CTk):
         cert_button.grid(column=0, row=6, padx=20, pady=15, sticky="ew")
 
         # Button: Update Employee Pay Rate
-        emp_promotion_button = ctk.CTkButton(self, text='Update Employee Pay Rate', font=('CTkFont', 15), height=40, command=self.open_emp_promotion_button)
+        emp_promotion_button = ctk.CTkButton(self, text='Update Employee Position', font=('CTkFont', 15), height=40, command=self.open_emp_promotion_button)
         emp_promotion_button.grid(column=0, row=7, padx=20, pady=15, sticky="ew")
 
     def open_employee_management_screen(self):
@@ -51,12 +51,15 @@ class App(ctk.CTk):
         emp_management_screen.main()
 
     def open_clearance_button(self):
+
         clearance_update.main()
 
     def open_overtime_button(self):
+
         print()
 
     def open_pto_button(self):
+        
         print()
     
     def open_cert_button(self):
