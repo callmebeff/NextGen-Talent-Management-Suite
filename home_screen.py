@@ -1,8 +1,8 @@
 import customtkinter as ctk
 import emp_management_screen
-from emp_management_screen import EmployeeManagementScreen
 import Certification
 import Promotion
+import clearance_update
 
 class App(ctk.CTk):
 
@@ -13,7 +13,6 @@ class App(ctk.CTk):
         self.title('NextGen Talent Management')
         self.grid_columnconfigure(0, weight=1)
         ctk.set_appearance_mode("dark") 
-        self.toplevel_window = None
 
         # Heading
         heading = ctk.CTkLabel(self, text='NextGen Talent Management Suite', font=('CTkFont', 30))
@@ -28,7 +27,7 @@ class App(ctk.CTk):
         add_rem_button.grid(column=0, row=2, padx=20, pady=15, sticky="ew")
 
         # Button: Update user clearance level
-        clearance_button = ctk.CTkButton(self, text='Update Clearance', font=('CTkFont', 15), height=40)
+        clearance_button = ctk.CTkButton(self, text='Update Clearance', font=('CTkFont', 15), height=40, command=self.open_clearance_button)
         clearance_button.grid(column=0, row=3, padx=20, pady=15, sticky="ew")
 
         # Button: Overtime: Approve/Reject
@@ -52,7 +51,7 @@ class App(ctk.CTk):
         emp_management_screen.main()
 
     def open_clearance_button(self):
-        print('')
+        clearance_update.main()
 
     def open_overtime_button(self):
         print()

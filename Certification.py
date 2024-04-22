@@ -11,7 +11,7 @@ class Certification(ctk.CTk):
         super().__init__(*args, **kwargs)
         self.title('Certification Update')
         ctk.set_appearance_mode("dark")
-        self.geometry('480x360')
+        self.geometry('600x650')
 
         SearchName = ctk.CTkLabel(self, text="Employee name: ")
         SearchName.grid(column=0, row=0, padx=2, pady=5)

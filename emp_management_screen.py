@@ -5,7 +5,7 @@ class EmployeeManagementScreen(ctk.CTk):
     def __init__(self,*args, **kwargs):
 
         super().__init__(*args, **kwargs)
-        self.geometry("1000x650")
+        self.geometry("600x650")
         self.title('NextGen Talent Management')
         self.grid_columnconfigure(0, weight=1)
         ctk.set_appearance_mode("dark") 

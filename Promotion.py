@@ -4,7 +4,7 @@ import customtkinter as ctk
 class EmployeeRaise(ctk.CTk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.geometry("1000x650")
+        self.geometry("600x650")
         self.title("Employee Management")
         self.geometry('480x360')
 
