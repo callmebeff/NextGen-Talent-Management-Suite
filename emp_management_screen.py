@@ -5,7 +5,7 @@ class EmployeeManagementScreen(ctk.CTk):
     def __init__(self,*args, **kwargs):
 
         super().__init__(*args, **kwargs)
-        self.geometry("600x650")
+        self.geometry("1000x650")
         self.title('NextGen Talent Management')
         self.grid_columnconfigure(0, weight=1)
         ctk.set_appearance_mode("dark") 
@@ -15,22 +15,22 @@ class EmployeeManagementScreen(ctk.CTk):
 
         default = ""
         options = ["Onboarding", "Offboarding", "Employee Lookup"]
-        self.dropdown = ctk.CTkComboBox(self, variable=default, values=options, command=self.show_hide_fields)
-        self.dropdown.grid(row=0, column=1, padx=10, pady=5)
+        self.dropdown = ctk.CTkComboBox(self, variable=default, values=options, command=self.show_hide_fields, width=200)
+        self.dropdown.grid(row=0, column=1, padx=10, pady=5, sticky="w")
 
         # Form fields
         self.id_label = ctk.CTkLabel(self, text='Employee ID')
-        self.id_entry = ctk.CTkEntry(self)
+        self.id_entry = ctk.CTkEntry(self, width=400)
         self.first_name_label = ctk.CTkLabel(self, text='First Name')
-        self.first_name_entry = ctk.CTkEntry(self)
+        self.first_name_entry = ctk.CTkEntry(self, width=400)
         self.last_name_label = ctk.CTkLabel(self, text='Last Name')
-        self.last_name_entry = ctk.CTkEntry(self)
+        self.last_name_entry = ctk.CTkEntry(self, width=400)
         self.address_label = ctk.CTkLabel(self, text='Address')
-        self.address_entry = ctk.CTkEntry(self)
+        self.address_entry = ctk.CTkEntry(self, width=400)
         self.position_label = ctk.CTkLabel(self, text='Position')
-        self.position_entry = ctk.CTkEntry(self)
+        self.position_entry = ctk.CTkEntry(self, width=400)
         self.reason_label = ctk.CTkLabel(self, text="Reason for Leaving")
-        self.reason_entry = ctk.CTkTextbox(self)
+        self.reason_entry = ctk.CTkTextbox(self, width=400)
 
 
     def show_hide_fields(self, option):
