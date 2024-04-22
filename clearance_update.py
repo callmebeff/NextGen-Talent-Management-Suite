@@ -4,16 +4,6 @@ import time
 
 ctk.set_appearance_mode("dark")
 
-def button_callback():
-    # t_end = time.time() + 1.0462
-    # while time.time() < t_end:
-    #     progressbar.start()
-    #     app.update()
-
-    # progressbar.stop()
-    print('')
-
-
 app = ctk.CTk()
 app.geometry("400x480")
 app.title('Employee Clearance Update')
@@ -40,12 +30,7 @@ reason_textbox = ctk.CTkTextbox(app, width=350)
 reason_textbox.pack()
 
 
-update_button = ctk.CTkButton(app, text="Update", command=button_callback)
+update_button = ctk.CTkButton(app, text="Update")
 update_button.pack(padx=20, pady=20)
-
-progressbar = ctk.CTkProgressBar(app, orientation="horizontal")
-progressbar.configure(mode="determinate")
-progressbar.set(0)
-progressbar.pack()
 
 app.mainloop()

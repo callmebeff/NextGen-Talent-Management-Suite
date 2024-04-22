@@ -2,6 +2,7 @@ import customtkinter as ctk
 import emp_management_screen
 from emp_management_screen import EmployeeManagementScreen
 
+
 class App(ctk.CTk):
 
     def __init__(self):
@@ -42,15 +43,28 @@ class App(ctk.CTk):
         cert_button.grid(column=0, row=6, padx=20, pady=15, sticky="ew")
 
         # Button: Update Employee Pay Rate
-        add_rem_button = ctk.CTkButton(self, text='Update Employee Pay Rate', font=('CTkFont', 15), height=40)
-        add_rem_button.grid(column=0, row=7, padx=20, pady=15, sticky="ew")
+        emp_pay_rate_button = ctk.CTkButton(self, text='Update Employee Pay Rate', font=('CTkFont', 15), height=40)
+        emp_pay_rate_button.grid(column=0, row=7, padx=20, pady=15, sticky="ew")
 
     def open_employee_management_screen(self):
-        emp_management_screen.main()  # create window if its None or destroyed
-    
-    
 
+        emp_management_screen.main()
 
+    def open_clearance_button(self):
+        print('')
+
+    def open_overtime_button(self):
+        print()
+
+    def open_pto_button(self):
+        print()
+    
+    def open_cert_button(self):
+        print()
+
+    def open_add_rem_button(self):
+        print()
+    
 app = App()
 
 if __name__ == "__main__":
