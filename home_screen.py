@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import emp_management_screen
 from emp_management_screen import EmployeeManagementScreen
-
+import Certification
 
 class App(ctk.CTk):
 
@@ -39,7 +39,7 @@ class App(ctk.CTk):
         pto_button.grid(column=0, row=5, padx=20, pady=15, sticky="ew")
 
         # Button: Add/Remove Employee Certification
-        cert_button = ctk.CTkButton(self, text='Add/Remove Employee Certification', font=('CTkFont', 15), height=40)
+        cert_button = ctk.CTkButton(self, text='Add/Remove Employee Certification', font=('CTkFont', 15), height=40, command=self.open_cert_button)
         cert_button.grid(column=0, row=6, padx=20, pady=15, sticky="ew")
 
         # Button: Update Employee Pay Rate
@@ -60,7 +60,7 @@ class App(ctk.CTk):
         print()
     
     def open_cert_button(self):
-        print()
+        Certification.main()
 
     def open_add_rem_button(self):
         print()
