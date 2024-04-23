@@ -9,6 +9,7 @@ last_names = ['Smith', 'Johnson', 'Doe']
 random_first = f'{random.choice(first_names)}'
 random_last = f'{random.choice(last_names)}'
 emp_id = random.randint(100000, 999999)
+req_id = random.randint(1000, 9999)
 hours = random.randint(1, 7)
 
 class OvertimeApproval(ctk.CTk):
@@ -21,7 +22,7 @@ class OvertimeApproval(ctk.CTk):
         self.grid_columnconfigure(0, weight=1)
         ctk.set_appearance_mode("dark")
 
-        heading = ctk.CTkLabel(self, text='Overtime Approval Screen', font=('CTkFont', 30))
+        heading = ctk.CTkLabel(self, text=f'Request R{req_id}', font=('CTkFont', 20))
         heading.grid(column=0, row=0, padx=10, pady=5, columnspan=2)
 
         self.id_label = ctk.CTkLabel(self, text='Employee ID')
@@ -46,7 +47,7 @@ class OvertimeApproval(ctk.CTk):
 
         self.operation_label = ctk.CTkLabel(self, text='Approve/Reject')
         self.operation_label.grid(column=0, row=5, padx=10, pady=5, sticky='w')
-        
+
         default = ""
         options = ["Approve", "Reject"]
         self.operation = ctk.CTkComboBox(self, variable=default, values=options, width=200)
@@ -67,14 +68,6 @@ class OvertimeApproval(ctk.CTk):
             self.response.configure(text=f"{random_first} {random_last}'s overtime request has been rejected")
         else:
             self.response.configure(text=f"Please select an option")
-
-
-
-
-
-
-
-
 
 def main():
 

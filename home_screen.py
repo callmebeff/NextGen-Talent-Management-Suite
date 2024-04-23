@@ -3,6 +3,7 @@ import emp_management_screen
 import Certification
 import Promotion
 import clearance_update
+import Overtime
 
 class App(ctk.CTk):
 
@@ -31,7 +32,7 @@ class App(ctk.CTk):
         clearance_button.grid(column=0, row=3, padx=20, pady=15, sticky="ew")
 
         # Button: Overtime: Approve/Reject
-        overtime_button = ctk.CTkButton(self, text='Manage Overtime Requests', font=('CTkFont', 15), height=40)
+        overtime_button = ctk.CTkButton(self, text='Manage Overtime Requests', font=('CTkFont', 15), height=40, command=self.open_overtime_button)
         overtime_button.grid(column=0, row=4, padx=20, pady=15, sticky="ew")
 
         # Button: PTO: Approve/Reject
@@ -56,7 +57,7 @@ class App(ctk.CTk):
 
     def open_overtime_button(self):
 
-        print()
+        Overtime.main()
 
     def open_pto_button(self):
         

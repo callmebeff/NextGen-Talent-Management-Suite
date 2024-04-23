@@ -28,7 +28,7 @@ class Certification(ctk.CTk):
     def add_remove_check(self, inputt):
 
         # Checks the real time input for adding or removing certification. When either show up a continue box appears.
-
+        inputt = inputt.lower()
         if inputt == 'add':
             button = ctk.CTkButton(self, text='Continue')
             button.grid(column=2, row=1, padx=2, pady=5)

@@ -24,7 +24,7 @@ class EmployeeRaise(ctk.CTk):
         employee_id = self.entry.get()
 
         if employee_id.isdigit():
-            self.promotion_label.configure(text="Employee with ID {} is promoted".format(employee_id))
+            self.promotion_label.configure(text="Employee with ID {} has been promoted to manager".format(employee_id))
         else:
             self.promotion_label.configure(text="Employee not found")
 
