@@ -1,6 +1,24 @@
 from tkinter import *
 from tkinter import messagebox as mb
 
+
+
+
+# Add date range of when they'll be out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 main = Tk()
 main.title('Welcome to PTO!')
 main.geometry('480x480')

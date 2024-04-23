@@ -1,13 +1,15 @@
 import customtkinter as ctk
 import random
 
+
+# Generate sample OT request
 first_names = ['Adam', 'Paul', 'Mark']
 last_names = ['Smith', 'Johnson', 'Doe']
 
 random_first = f'{random.choice(first_names)}'
 random_last = f'{random.choice(last_names)}'
 emp_id = random.randint(100000, 999999)
-
+hours = random.randint(1, 7)
 
 class OvertimeApproval(ctk.CTk):
 
@@ -19,6 +21,8 @@ class OvertimeApproval(ctk.CTk):
         self.grid_columnconfigure(0, weight=1)
         ctk.set_appearance_mode("dark")
 
+        heading = ctk.CTkLabel(self, text='Overtime Approval Screen', font=('CTkFont', 30))
+        heading.grid(column=0, row=0, padx=10, pady=5, columnspan=2)
 
         self.id_label = ctk.CTkLabel(self, text='Employee ID')
         self.id_label.grid(column=0, row=1, padx=10, pady=5, sticky='w')
@@ -35,24 +39,34 @@ class OvertimeApproval(ctk.CTk):
         self.last_name_display = ctk.CTkLabel(self, text=f'{random_last}')
         self.last_name_display.grid(column=1, row=3, padx=10, pady=5, sticky='w')
 
+        self.ot_amount_label = ctk.CTkLabel(self, text='Overtime Hours (amount)')
+        self.ot_amount_label.grid(column=0, row=4, padx=10, pady=5, sticky='w')
+        self.ot_amount_entry = ctk.CTkLabel(self, text=f'{hours} hour(s)')
+        self.ot_amount_entry.grid(column=1, row=4, padx=10, pady=5, sticky='w')
+
         self.operation_label = ctk.CTkLabel(self, text='Approve/Reject')
         self.operation_label.grid(column=0, row=5, padx=10, pady=5, sticky='w')
-
+        
         default = ""
-        options = ["Approve", "Reject", "Employee Lookup"]
-        self.operation = ctk.CTkComboBox(self, variable=default, values=options, command=self.manage_ot, width=200)
-        self.operation.grid(row=5, column=1, padx=10, pady=5, sticky="w")
+        options = ["Approve", "Reject"]
+        self.operation = ctk.CTkComboBox(self, variable=default, values=options, width=200)
+        self.operation.grid(column=1, row=5, padx=10, pady=5, sticky="w")
+
+        self.save_button = ctk.CTkButton(self, text='Save', command=self.ot_button_press)
+        self.save_button.grid(column=0, row=20, columnspan=2, sticky='ew', padx=10, pady=25)
 
         self.response = ctk.CTkLabel(self, text='')
-        self.response.grid(column=0,row=22, columnspan=2)
+        self.response.grid(column=0,row=22, columnspan=2, padx=10, pady=25)
 
-
-
-
-    def manage_ot(self, option):
+    def ot_button_press(self):
             
         if self.operation.get() == "Approve":
-            self.promotion_label.configure(text="Request approved")
+            self.response.configure(text=f"{random_first} {random_last}'s overtime request has been approved")
+
+        elif self.operation.get() == "Reject":
+            self.response.configure(text=f"{random_first} {random_last}'s overtime request has been rejected")
+        else:
+            self.response.configure(text=f"Please select an option")
 
 
 
