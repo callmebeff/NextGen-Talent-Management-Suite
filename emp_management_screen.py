@@ -1,4 +1,10 @@
 import customtkinter as ctk
+import random
+
+first_names = ['Adam', 'Paul', 'Mark']
+last_names = ['Smith', 'Johnson', 'Doe']
+random_first = f'{random.choice(first_names)}'
+random_last = f'{random.choice(last_names)}'
 
 class EmployeeManagementScreen(ctk.CTk):
 
@@ -31,6 +37,7 @@ class EmployeeManagementScreen(ctk.CTk):
         self.position_entry = ctk.CTkEntry(self, width=400)
         self.reason_label = ctk.CTkLabel(self, text="Reason for Leaving")
         self.reason_entry = ctk.CTkTextbox(self, width=400)
+        self.returned_emp_info = ctk.CTkLabel(self, text='', width=400)
 
 
     def show_hide_fields(self, option):
@@ -85,9 +92,17 @@ class EmployeeManagementScreen(ctk.CTk):
             self.position_entry.grid_remove()
             self.reason_label.grid_remove()
             self.reason_entry.grid_remove()
-            search_button = ctk.CTkButton(self, text='Search')
+            search_button = ctk.CTkButton(self, text='Search', command=self.employee_search)
             search_button.grid(column=0, row=20, padx=10, pady=5, sticky='ew', columnspan=2)
+            self.returned_emp_info.grid(column=0, row=40, padx=10, pady=5, sticky='ew', columnspan=2)
 
+    def employee_search(self):
+        
+        if self.id_entry.get() != '' and len(self.id_entry.get()) == 8 :
+            self.returned_emp_info.configure(text=f"Employee with ID {self.id_entry.get()}: {random_first} {random_last}")
+
+        else:
+            self.returned_emp_info.configure(text=f"Invalid ID (Must be 8 digits in length)")
 
 
 def main():
@@ -95,7 +110,8 @@ def main():
     emp_management_screen = EmployeeManagementScreen()
     emp_management_screen.mainloop()
 
-
+if __name__ == "__main__":
+    main()
 
 # def show_hide_fields(option):
 
