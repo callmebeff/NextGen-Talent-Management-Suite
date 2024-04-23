@@ -58,8 +58,10 @@ class EmployeeManagementScreen(ctk.CTk):
             self.position_entry.grid(column=1, row=5, padx=10, pady=5, sticky='w')
             self.reason_label.grid_remove()
             self.reason_entry.grid_remove()
-            save_button = ctk.CTkButton(self, text='Save')
+            save_button = ctk.CTkButton(self, text='Save', command=self.save_employee)
             save_button.grid(column=0, row=20, padx=10, pady=5, sticky='ew', columnspan=2)
+            self.returned_emp_info.grid(column=0, row=40, padx=10, pady=5, sticky='ew', columnspan=2)
+
 
         elif selection == "Offboarding":
 
@@ -75,8 +77,10 @@ class EmployeeManagementScreen(ctk.CTk):
             self.position_entry.grid(column=1, row=5, padx=10, pady=5, sticky='w')
             self.reason_label.grid(column=0, row=6, padx=10, pady=5, sticky='w')
             self.reason_entry.grid(column=1, row=6, padx=10, pady=5, sticky='w')
-            save_button = ctk.CTkButton(self, text='Save')
+            save_button = ctk.CTkButton(self, text='Save', command=self.rem_employee)
             save_button.grid(column=0, row=20, padx=10, pady=5, sticky='ew', columnspan=2)
+            self.returned_emp_info.grid(column=0, row=40, padx=10, pady=5, sticky='ew', columnspan=2)
+
 
         elif selection == "Employee Lookup":
             
@@ -98,12 +102,22 @@ class EmployeeManagementScreen(ctk.CTk):
 
     def employee_search(self):
         
-        if self.id_entry.get() != '' and len(self.id_entry.get()) == 8 :
+        if self.id_entry.get() != '' and len(self.id_entry.get()) == 8:
             self.returned_emp_info.configure(text=f"Employee with ID {self.id_entry.get()}: {random_first} {random_last}")
-
         else:
             self.returned_emp_info.configure(text=f"Invalid ID (Must be 8 digits in length)")
 
+    def save_employee(self):
+        if self.id_entry.get() != '' and len(self.id_entry.get()) == 8:
+            self.returned_emp_info.configure(text=f"Saved.")
+        else:
+            self.returned_emp_info.configure(text=f"Invalid ID (Must be 8 digits in length)")
+
+    def rem_employee(self):
+        if self.id_entry.get() != '' and len(self.id_entry.get()) == 8:
+            self.returned_emp_info.configure(text=f"Employee removed")
+        else:
+            self.returned_emp_info.configure(text=f"Invalid ID (Must be 8 digits in length)")
 
 def main():
 
