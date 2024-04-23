@@ -3,8 +3,6 @@ import customtkinter as ctk
 import time
 
 
-
-
 class ClearanceUpdate(ctk.CTk):
 
     def __init__(self,*args, **kwargs):
