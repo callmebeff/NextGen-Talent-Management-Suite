@@ -4,6 +4,7 @@ import Certification
 import Promotion
 import clearance_update
 import Overtime
+import pto_form
 
 class App(ctk.CTk):
 
@@ -36,7 +37,7 @@ class App(ctk.CTk):
         overtime_button.grid(column=0, row=4, padx=20, pady=15, sticky="ew")
 
         # Button: PTO: Approve/Reject
-        pto_button = ctk.CTkButton(self, text='Manage PTO Requests', font=('CTkFont', 15), height=40)
+        pto_button = ctk.CTkButton(self, text='Manage PTO Requests', font=('CTkFont', 15), height=40, command=self.open_pto_button)
         pto_button.grid(column=0, row=5, padx=20, pady=15, sticky="ew")
 
         # Button: Add/Remove Employee Certification
@@ -61,7 +62,7 @@ class App(ctk.CTk):
 
     def open_pto_button(self):
         
-        print()
+        pto_form.main()
     
     def open_cert_button(self):
         Certification.main()

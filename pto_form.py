@@ -3,18 +3,17 @@ from tkinter import messagebox as mb
 
 import customtkinter as ctk
 import random
+import datetime
 
-# Generate sample OT request
+# Generate example PTO request
 first_names = ['Adam', 'Paul', 'Mark']
 last_names = ['Smith', 'Johnson', 'Doe']
-
 random_first = f'{random.choice(first_names)}'
 random_last = f'{random.choice(last_names)}'
 emp_id = random.randint(100000, 999999)
 req_id = random.randint(1000, 9999)
-hours = random.randint(1, 40)
-
-# Add date range of when they'll be out
+hours = random.randint(1, 8)
+pto_date = datetime.date(2024, random.randint(4, 8), random.randint(9, 30))
 
 
 class OvertimeApproval(ctk.CTk):
@@ -51,11 +50,12 @@ class OvertimeApproval(ctk.CTk):
         self.pto_amount_display = ctk.CTkLabel(self, text=f'{hours} hour(s)')
         self.pto_amount_display.grid(column=1, row=4, padx=10, pady=5, sticky='w')
 
-        
+        self.pto_date = ctk.CTkLabel(self, text='PTO Request Date')
+        self.pto_date.grid(column=0, row=5, padx=10, pady=5, sticky='w')
+        self.pto_date_display = ctk.CTkLabel(self, text=f'{pto_date}')
+        self.pto_date_display.grid(column=1, row=5, padx=10, pady=5, sticky='w')
 
-
-
-        self.operation_label = ctk.CTkLabel(self, text='Approve/Reject')
+        self.operation_label = ctk.CTkLabel(self, text='Approve/Reject PTO Request')
         self.operation_label.grid(column=0, row=6, padx=10, pady=5, sticky='w')
 
         default = ""
@@ -63,12 +63,31 @@ class OvertimeApproval(ctk.CTk):
         self.operation = ctk.CTkComboBox(self, variable=default, values=options, width=200)
         self.operation.grid(column=1, row=6, padx=10, pady=5, sticky="w")
 
-        self.save_button = ctk.CTkButton(self, text='Save', command=self.ot_button_press)
+        self.save_button = ctk.CTkButton(self, text='Save', command=self.pto_button_press)
         self.save_button.grid(column=0, row=20, columnspan=2, sticky='ew', padx=10, pady=25)
 
         self.response = ctk.CTkLabel(self, text='')
         self.response.grid(column=0,row=22, columnspan=2, padx=10, pady=25)
 
+
+    def pto_button_press(self):
+            
+        if self.operation.get() == "Approve":
+            self.response.configure(text=f"{random_first} {random_last}'s PTO request has been approved")
+
+        elif self.operation.get() == "Reject":
+            self.response.configure(text=f"{random_first} {random_last}'s PTO request has been rejected")
+        else:
+            self.response.configure(text=f"Please select an option")
+
+
+def main():
+
+    ot_screen = OvertimeApproval()
+    ot_screen.mainloop()
+
+if __name__ == "__main__":
+    main()
 
 
 
