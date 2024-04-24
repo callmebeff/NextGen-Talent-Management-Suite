@@ -13,7 +13,7 @@ class Certification(ctk.CTk):
         ctk.set_appearance_mode("dark")
         self.geometry('600x650')
 
-        SearchName = ctk.CTkLabel(self, text="Employee name: ")
+        SearchName = ctk.CTkLabel(self, text="Employee ID: ")
         SearchName.grid(column=0, row=0, padx=2, pady=5)
 
         Searchbar = ctk.CTkEntry(self)
@@ -58,7 +58,7 @@ class Certification(ctk.CTk):
 
         # Adding function after the continue processed this direction. Statement of what certification to add.
 
-        Searchname = ctk.CTkLabel(self, text="What certification? ")
+        Searchname = ctk.CTkLabel(self, text="Certification ID: ")
         Searchname.grid(column=0, row=2, padx=2, pady=5)
 
         Searchbar = ctk.CTkEntry(self)
@@ -96,7 +96,7 @@ class Certification(ctk.CTk):
 
         # Removing function after the continue processed this direction. Statement of what certification to remove.
 
-        SearchName = ctk.CTkLabel(self, text="What certification? ")
+        SearchName = ctk.CTkLabel(self, text="Certification ID: ")
         SearchName.grid(column=0, row=2)
 
         Searchbar = ctk.CTkEntry(self)
